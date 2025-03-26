@@ -2,13 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Buscador de Brujas</title>
+  <title>WikiBrujas</title>
   <style>
     body {
       font-family: "Georgia", serif;
       background-color: #f2e6d9;
       text-align: center;
       padding-top: 50px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #4b2e2e;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #aaa;
     }
     input {
       width: 300px;
@@ -29,8 +35,9 @@
   </style>
 </head>
 <body>
-  <h2>Buscador del Gran Grimorio</h2>
-  <input type="text" id="nombre" placeholder="Escribí el nombre de la bruja..." />
+  <h1>🧙 WikiBrujas</h1>
+  <p>Escribí el nombre de la bruja para ver su biografía</p>
+  <input type="text" id="nombre" placeholder="Ej: Morgana..." />
   <button onclick="buscarBruja()">Buscar</button>
   <div id="mensaje"></div>
 
@@ -51,7 +58,7 @@
           slide: mapaBrujas[nombre]
         }, '*');
       } else {
-        document.getElementById('mensaje').textContent = 'Esa bruja no está registrada en el grimorio...';
+        document.getElementById('mensaje').textContent = 'Esa bruja no está registrada en WikiBrujas...';
       }
     }
   </script>
