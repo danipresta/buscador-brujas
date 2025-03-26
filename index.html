@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscador de Brujas</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #f2e6d9;
+      text-align: center;
+      padding-top: 50px;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    #mensaje {
+      margin-top: 20px;
+      font-style: italic;
+      color: #8b0000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Buscador del Gran Grimorio</h2>
+  <input type="text" id="nombre" placeholder="Escribí el nombre de la bruja..." />
+  <button onclick="buscarBruja()">Buscar</button>
+  <div id="mensaje"></div>
+
+  <script>
+    function buscarBruja() {
+      const nombre = document.getElementById('nombre').value.toLowerCase().trim();
+      const mapaBrujas = {
+        'morgana': 1,
+        'abigail': 2,
+        'yaya': 3,
+        'florinda': 4
+      };
+
+      if (mapaBrujas[nombre]) {
+        // Cambia de página en Genially
+        window.parent.postMessage({
+          type: 'setSlide',
+          slide: mapaBrujas[nombre]
+        }, '*');
+      } else {
+        document.getElementById('mensaje').textContent = 'Esa bruja no está registrada en el grimorio...';
+      }
+    }
+  </script>
+</body>
+</html>
+
